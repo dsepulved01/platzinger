@@ -1,0 +1,42 @@
+<div class="homeContainer">
+  <div class="whiteBorderGlassBox">
+    <div class="homeHeadContainer">
+      <div class="row">
+        <div class="col-md-auto">
+          <div class="avatarFrameonline">
+            <img src="../../assets/img/generic_avatar.png" alt="home avatar" class="homeAvatarPicture">
+          </div>
+        </div>
+        <div class="col">
+          <b>Eduardo</b>
+          <div>
+            <span>
+              Online
+            </span>
+            <br>
+            <span>
+              Escribir mensaje personal
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <input type="text" placeholder="Search Friends" [(ngModel)]="query"><br><br>
+  
+  <h2>Amigos</h2>
+  <ng-container *ngFor="let user of friends | search: query">
+    <div>
+      <a routerLink="/conversation/{{ user.uid }}">
+        {{ user.nick }} - {{ user.email }}
+      </a>
+      <img src="../../assets/img/logo_live_{{ user.status }}.png" alt="{{ user.status }}" width="20px">
+    </div>
+  </ng-container>
+</div>
+
+
